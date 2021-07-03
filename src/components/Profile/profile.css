@@ -1,0 +1,110 @@
+.personalInfo {
+  background-color: #d4d4d4;
+  padding: 25px 40px;
+}
+
+spam.phone.cc_cursor {
+}
+
+div {
+  /* display: flex; */
+}
+.Link {
+  color: rgb(29, 29, 29);
+}
+.Link:hover {
+  text-decoration: none;
+  color: rgb(110, 110, 110);
+}
+
+.id {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.personal.cc_cursor {
+  display: flex;
+  justify-content: space-between;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+.col-3 {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  font-size: 19px;
+  font-family: monospace;
+}
+
+.col-9.cc_cursor {
+  padding-left: 10%;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  font-size: 20px;
+  font-family: monospace;
+  /* align-items: center; */
+}
+.treatmentdetails {
+  height: 600px;
+}
+
+.treatmentdetails .col-3 {
+  border-right: 1px solid red;
+}
+
+/* btn classes  */
+.btn-print {
+  background-color: rgb(198, 198, 255);
+  color: rgb(42, 42, 245);
+}
+.btn-view {
+  background-color: rgb(211, 241, 247);
+  color: rgb(54, 224, 236);
+}
+.btn-edit {
+  background-color: rgb(198, 255, 222);
+  color: rgb(42, 245, 120);
+}
+.btn-delete {
+  background-color: rgb(255, 209, 198);
+  color: rgb(245, 99, 42);
+}
+.btn:hover {
+  color: rgb(49, 49, 49);
+}
+.proDetails {
+  color: #8a8a8a;
+}
+.addnewBtn {
+  position: fixed;
+  bottom: 3%;
+  z-index: 100000;
+}
+.addnewBtn div {
+  background: white;
+  border: 4px solid rgb(63 81 181 / 20%);
+  border-radius: 7px;
+}
+.updateDelete {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.updateDelete button {
+  align-items: center;
+  border: navajowhite;
+  color: rgb(31, 10, 10);
+  font-size: 22px;
+  background: transparent;
+  padding: 5px;
+}
+
+.updtaeUSer {
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+.updateDelete button:focus {
+  outline: none;
+}

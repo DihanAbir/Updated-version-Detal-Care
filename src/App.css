@@ -1,0 +1,88 @@
+header.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionStatic.MuiAppBar-colorPrimary.MuiPaper-elevation4 {
+  box-shadow: none;
+}
+* {
+  font-family: monospace;
+}
+
+.makeStyles-content-39,
+.makeStyles-content-10,
+.profileSection {
+  margin-top: 5%;
+  padding: 35px;
+  flex-grow: 1;
+}
+
+.unpaid {
+  word-wrap: normal;
+  background: #fb1f1f;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+.UserHeader.row {
+  background-color: teal;
+  margin-top: 25px;
+  padding: 15px 0px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+  font-family: -webkit-pictograph;
+}
+.user-single-grid.row {
+  padding: 6px 0px;
+  border-bottom: 5px solid #e0dfdf;
+  margin-top: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.user-single-grid.row:hover {
+  background-color: #d6d6d6;
+  font-size: 15px;
+  font-family: monospace;
+}
+.unpaid:focus {
+  outline: none;
+}
+
+.icons-add {
+  justify-content: center;
+  float: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  align-items: center;
+  display: flex;
+}
+.addDiv {
+  height: 80%;
+}
+.icons-add svg {
+  height: 80%;
+  width: 26%;
+}
+
+form {
+  display: grid;
+  margin: 10px;
+}
+input,
+textarea,
+select {
+  margin: 13px 0px;
+  overflow: visible;
+  border: 2px dotted #d4d4d4;
+  padding: 20px 5px;
+  border-radius: 7px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

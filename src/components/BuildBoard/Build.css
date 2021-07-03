@@ -1,0 +1,14 @@
+.mainBuildCol {
+  padding: 30px;
+  border-radius: 15px;
+  color: white;
+}
+.first {
+  background: linear-gradient(to right, #c97ff3, #974ac4);
+}
+.second {
+  background: linear-gradient(to right, #68a3e7, #3983d8);
+}
+.third {
+  background: linear-gradient(to right, #feb184, #d18356);
+}
