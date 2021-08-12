@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { prescriptionContext } from "../../App";
+import UpdateVis from "../../Utils/UpdateVis";
 
 // PrescriptionSingle
-function Prescription({ key, visit }) {
+function Prescription({ key, visit, disinfo }) {
+  const [prescriptionFinal, setPrescription, userFinal, setUser] =
+    useContext(prescriptionContext);
+
   const deleteDayHandler = (id) => {
-    fetch(`http://localhost:5000/api/v1/days/${id}`, {
+    fetch(`https://dental-finalbackend.herokuapp.com/api/v1/days/${id}`, {
       method: "DELETE",
     }).then(() => window.location.reload());
   };
+  // console.log(`disinfo`, disinfo);
 
   return (
     <div className="border p-2 prescriptionCollection">
@@ -22,8 +29,19 @@ function Prescription({ key, visit }) {
           style={{ alignItems: "center" }}
         >
           <button className="btn btn-print mr-1">Pay: {visit.pay}</button>
-          <button className="btn btn-view mr-1">View</button>
-          <button className="btn btn-edit mr-1">Edit</button>
+          <Link to="/SinglePrescriptionView">
+            <button
+              onClick={() => {
+                setPrescription([visit, disinfo]);
+              }}
+              className="btn btn-view mr-1"
+            >
+              View
+            </button>
+          </Link>
+          <div className="my-auto mb-1">
+            <UpdateVis visit={visit} disId={visit._id} />
+          </div>
           <button
             className="btn btn-delete mr-1"
             onClick={() => deleteDayHandler(visit._id)}

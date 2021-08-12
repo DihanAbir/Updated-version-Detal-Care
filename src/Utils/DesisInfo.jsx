@@ -4,11 +4,22 @@ function DesisInfo({ disis }) {
   return (
     <div>
       <div className="userinfo">
-        <p>Title: {disis.title}</p>
-        <p>TreatmentPlan: {disis.treatmentPlan}</p>
-        <p>Treatment: {disis.treatment}</p>
-        <p>Date: {disis.date}</p>
-        <small>userid: {disis.userid}</small>
+        <p>
+          {" "}
+          <b>Title:</b> {disis.title}
+        </p>
+        <p>
+          {" "}
+          <b>TreatmentPlan:</b> {disis.treatmentPlan}
+        </p>
+        <p>
+          {" "}
+          <b>Treatment:</b> {disis.treatment}
+        </p>
+        <p>
+          <b>Date:</b> {disis.date}
+        </p>
+        <small className="text-success">userid: {disis.userid}</small>
         <div className="row my-3">
           <div className="col-4 border">
             <h3>Total Bill: {disis.bill}</h3>

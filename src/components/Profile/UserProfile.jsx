@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 import { GrUpdate } from "react-icons/gr";
@@ -15,6 +15,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { UserDetails } from "../../Actions/userAction";
 import LinearIndeterminate from "../preloader";
 import "./profile.css";
+import UpdateDis from "../../Utils/UpdateDis";
+import { prescriptionContext } from "../../App";
 
 function UserProfile() {
   const { userId } = useParams();
@@ -37,7 +39,7 @@ function UserProfile() {
     };
 
     await axios.post(
-      `http://localhost:5000/api/v1/disease/add/${userId}`,
+      `https://dental-finalbackend.herokuapp.com/api/v1/disease/add/${userId}`,
       {
         title: { title },
         bill: 22121,
@@ -53,13 +55,18 @@ function UserProfile() {
   };
 
   const deleteDiseaseHandler = (id) => {
-    fetch(`http://localhost:5000/api/v1/disease/delete/${id}`, {
-      method: "DELETE",
-    }).then(() => window.location.reload());
+    fetch(
+      `https://dental-finalbackend.herokuapp.com/api/v1/disease/delete/${id}`,
+      {
+        method: "DELETE",
+      }
+    ).then(() => window.location.reload());
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/disease/user/${userId}`)
+    fetch(
+      `https://dental-finalbackend.herokuapp.com/api/v1/disease/user/${userId}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data.data);
@@ -89,8 +96,8 @@ function UserProfile() {
             <p>all Prescrition's </p>
             <div className="filterHerf border text-center">
               <button className="btn btn-light mr-5">Prescrition</button>
-              <button className="btn btn-light mr-5">Prescrition</button>
-              <button className="btn btn-light mr-5">Prescrition</button>
+              <button className="btn btn-light mr-5">Disease</button>
+              <button className="btn btn-light mr-5">Treatment Plan</button>
             </div>
             <hr />
             <p className="text-center">All Disease's </p>
@@ -101,7 +108,7 @@ function UserProfile() {
                 ? disease.map((dis, index) => (
                     <div key={index} className="border col-md-4">
                       <div className="row">
-                        <div className="col-md-10">
+                        <div className="col-md-8">
                           <Link className="Link" to={`/allVisits/${dis._id}`}>
                             <small>{dis._id}</small>
                             <p>
@@ -116,12 +123,12 @@ function UserProfile() {
                             </p>
                           </Link>
                         </div>
-                        <div className="updateDelete col-md-2">
+                        <div className="updateDelete col-md-4">
                           <button onClick={() => deleteDiseaseHandler(dis._id)}>
                             <AiOutlineDelete />
                           </button>
                           <button>
-                            <GrUpdate />
+                            <UpdateDis disId={dis._id} infor={dis} />
                           </button>
                         </div>
                       </div>
@@ -147,27 +154,31 @@ export default UserProfile;
 
 // Profile component
 function Profile({ userId }) {
+  const [prescriptionFinal, setPrescription, userFinal, setUser] =
+    useContext(prescriptionContext);
   const [profile, setProfile] = useState({});
   const history = useHistory();
 
   const dispatch = useDispatch();
   const userD = useSelector((state) => state.userDetails);
   const { loading, error, user } = userD;
-  console.log(`user`, user);
 
   useEffect(() => {
-    // fetch(`http://localhost:5000/api/v1/user/profile/${userId}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     // console.log(data.data);
-    //     setProfile(data.data);
-    //   });
+    fetch(
+      `https://dental-finalbackend.herokuapp.com/api/v1/user/profile/${userId}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data.data);
+        setProfile(data.data);
+        setUser([data.data]);
+      });
 
     dispatch(UserDetails(userId));
   }, [dispatch, userId]);
 
   const deleteProfileHandler = () => {
-    fetch(`http://localhost:5000/api/v1/user/${userId}`, {
+    fetch(`https://dental-finalbackend.herokuapp.com/api/v1/user/${userId}`, {
       method: "DELETE",
     }).then(() => alert("Delete successful"));
     history.push("/");

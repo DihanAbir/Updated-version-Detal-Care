@@ -33,8 +33,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function UpdateUser({ infor, userId }) {
   const { name, phone, age, address, gender, bloodGroup } = infor;
+  // console.log(`object`, infor);
+
   // all states
-  const [updatedname, setName] = useState(name);
+  const [updatedname, setName] = useState(infor.name);
   const [updatedphone, setPhone] = useState(phone);
   const [updatedage, setAge] = useState(age);
   const [updatedaddress, setAddress] = useState(address);
@@ -68,7 +70,7 @@ export default function UpdateUser({ infor, userId }) {
     };
 
     const { data } = await axios.put(
-      `http://localhost:5000/api/v1/user/${userId}`,
+      `https://dental-finalbackend.herokuapp.com/api/v1/user/${userId}`,
       {
         name: updatedname,
         phone: updatedphone,
@@ -79,7 +81,7 @@ export default function UpdateUser({ infor, userId }) {
       },
       config
     );
-    console.log(`data`, data);
+
     window.location.reload();
   };
 
@@ -123,15 +125,17 @@ export default function UpdateUser({ infor, userId }) {
           <List>
             <form action="">
               <input
-                placeholder={phone}
+                onWheel={(e) => e.preventDefault()}
+                value={updatedphone}
+                placeholder="phone"
                 onChange={(e) => {
                   setPhone(e.target.value);
                 }}
                 type="number"
-                // placeholder="Enter phone"
               />
               <input
-                placeholder={`'Name'${name}`}
+                value={updatedname}
+                placeholder="Name"
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
@@ -144,7 +148,8 @@ export default function UpdateUser({ infor, userId }) {
                   setAge(e.target.value);
                 }}
                 type="number"
-                placeholder={`'age'${age}`}
+                onWheel={(e) => e.preventDefault()}
+                placeholder="age"
               />
               <input
                 Value={address}

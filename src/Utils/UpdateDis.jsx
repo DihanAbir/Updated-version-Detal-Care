@@ -15,6 +15,8 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 
+import { GrUpdate } from "react-icons/gr";
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
@@ -29,20 +31,24 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({ userId }) {
+export default function UpdateDis({ infor, disId }) {
+  // console.log(`infor`, infor);
+  //   const { name, phone, age, address, gender, bloodGroup } = infor;
+
   // all states
-  const [title, setTitle] = useState("");
-  const [treatment, setTreatment] = useState("");
-  const [treatmentPlan, setTreatmentPlan] = useState("");
-  const [bill, setBill] = useState(0);
-  const [due, setDue] = useState(0);
-  const [payment, setPayment] = useState(0);
-  const [InV, setInV] = useState("");
-  const [BP, setBP] = useState("");
-  const [Diabetes, setDiabetes] = useState("");
-  const [Temp, setTemp] = useState("");
-  const [DeseaseHistory, setDeseaseHistory] = useState("");
-  const [MedicineHistory, setMedicineHistory] = useState("");
+  const [title, setTitle] = useState(infor.title);
+  const [treatment, setTreatment] = useState(infor.treatment);
+  const [treatmentPlan, setTreatmentPlan] = useState(infor.treatmentPlan);
+  const [bill, setBill] = useState(infor.bill);
+  //other
+  const [InV, setInV] = useState(infor.InV);
+  const [BP, setBP] = useState(infor.BP);
+  const [Diabetes, setDiabetes] = useState(infor.Diabetes);
+  const [Temp, setTemp] = useState(infor.Temp);
+  const [DeseaseHistory, setDeseaseHistory] = useState(infor.DeseaseHistory);
+  const [MedicineHistory, setMedicineHistory] = useState(infor.MedicineHistory);
+
+  const [payment, setPayment] = useState(infor.pay);
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -52,12 +58,12 @@ export default function FullScreenDialog({ userId }) {
   };
 
   const handleClose = () => {
-    window.location.reload();
     setOpen(false);
   };
 
   //   custome function
   const handlesave = async () => {
+    // alert(disId);
     // fetch(, {
     //   method: "POST",
     //   headers: { "Content-type": "application/json" },
@@ -71,34 +77,40 @@ export default function FullScreenDialog({ userId }) {
       },
     };
 
-    const { data } = await axios.post(
-      `https://dental-finalbackend.herokuapp.com/api/v1/disease/add/${userId}`,
+    const { data } = await axios.put(
+      `https://dental-finalbackend.herokuapp.com/api/v1/disease/update/${disId}`,
       {
-        title: title,
-        bill: bill,
-        due: due,
-        pay: payment,
-        treatment: treatment,
-        treatmentPlan: treatmentPlan,
-        userid: userId,
-        InV: InV,
-        BP: BP,
-        Diabetes: Diabetes,
-        Temp: Temp,
-        DeseaseHistory: DeseaseHistory,
-        MedicineHistory: MedicineHistory,
+        titleupdated: title,
+        bilupdated: bill,
+        payupdated: payment,
+        treatmentupdated: treatment,
+        treatmentPlanupdated: treatmentPlan,
+
+        UpdatedInV: InV,
+        UpdatedBP: BP,
+        UpdatedDiabetes: Diabetes,
+        UpdatedTemp: Temp,
+        UpdatedDeseaseHistory: DeseaseHistory,
+        UpdatedMedicineHistory: MedicineHistory,
+        // userid: userId,
       },
       config
     );
-    console.log(`data`, data);
+
     window.location.reload();
   };
-
   return (
     <div>
-      <p className="m-4 icons-add">
-        <SiAddthis onClick={handleClickOpen} />
-      </p>
+      {/* <div className="icons-add" > */}
+      <Button
+        className="my-2"
+        onClick={handleClickOpen}
+        variant="contained"
+        color="secondary"
+      >
+        <GrUpdate />
+      </Button>
+      {/* </div> */}
       <Dialog
         fullScreen
         open={open}
@@ -119,7 +131,7 @@ export default function FullScreenDialog({ userId }) {
               Close
             </Typography>
             <Button autoFocus color="inherit" onClick={handlesave}>
-              save
+              UPDATE
             </Button>
           </Toolbar>
         </AppBar>
@@ -130,6 +142,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.title}
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -140,16 +153,18 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                value={treatment}
                 onChange={(e) => {
                   setTreatment(e.target.value);
                 }}
-                placeholder="Add Disease Prescription"
+                placeholder="Update Disease Prescription"
                 type="text"
               />
               <textarea
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
                 }}
+                value={treatmentPlan}
                 placeholder="Add  Treatment Plan"
                 type="textarea"
               />
@@ -157,6 +172,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.bill}
                 onChange={(e) => {
                   setBill(e.target.value);
                 }}
@@ -167,17 +183,20 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.pay}
                 onChange={(e) => {
                   setPayment(e.target.value);
                 }}
                 placeholder="Add Payment"
                 type="number"
               />
-              {/* additional */}
+
+              {/* others */}
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.InV}
                 onChange={(e) => {
                   setInV(e.target.value);
                 }}
@@ -188,6 +207,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.BP}
                 onChange={(e) => {
                   setBP(e.target.value);
                 }}
@@ -198,6 +218,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.Diabetes}
                 onChange={(e) => {
                   setDiabetes(e.target.value);
                 }}
@@ -208,6 +229,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.Temp}
                 onChange={(e) => {
                   setTemp(e.target.value);
                 }}
@@ -218,6 +240,7 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.DeseaseHistory}
                 onChange={(e) => {
                   setDeseaseHistory(e.target.value);
                 }}
@@ -228,10 +251,11 @@ export default function FullScreenDialog({ userId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={infor.MedicineHistory}
                 onChange={(e) => {
                   setMedicineHistory(e.target.value);
                 }}
-                placeholder="Add Medicine History"
+                placeholder="Add MedicineHistory"
                 type="text"
               />
             </form>

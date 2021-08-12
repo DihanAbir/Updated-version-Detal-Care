@@ -16,7 +16,7 @@ function AllVisits() {
 
   // desisi information er effoer
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/disease/${disId}`)
+    fetch(`https://dental-finalbackend.herokuapp.com/api/v1/disease/${disId}`)
       .then((res) => res.json())
       .then((data) => {
         setDisis(data.data);
@@ -25,7 +25,7 @@ function AllVisits() {
 
   // days er effect eita
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/days/${disId}`)
+    fetch(`https://dental-finalbackend.herokuapp.com/api/v1/days/${disId}`)
       .then((res) => res.json())
       .then((data) => {
         setVisits(data.data);
@@ -69,7 +69,7 @@ function AllVisits() {
       </div>
       {/* </Link> */}
       <div className="prescrition border p-3">
-        <h2>All Prescrition's: {disId}</h2>
+        <h4>Disease ID: {disId}</h4>
         <DesisInfo disis={disis} />
 
         <AddVisite due={disis.due} disId={disId} />
@@ -80,7 +80,7 @@ function AllVisits() {
             <div className="col-6">
               <div className="row">
                 <b className="col-4">Date</b>
-                <b className="col-8 px-4">Prescription</b>
+                <b className="col-8 px-4">Treatment</b>
               </div>
             </div>
             <div className="col-6 "></div>
@@ -91,7 +91,7 @@ function AllVisits() {
         {/* ----------------***********------------- */}
         {visits.length >= 0
           ? visits.map((visit, index) => (
-              <Prescription key={index} visit={visit} />
+              <Prescription disinfo={disis} key={index} visit={visit} />
             ))
           : "loading..."}
 

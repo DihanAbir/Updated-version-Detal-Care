@@ -25,10 +25,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AddVisite({ due, disId }) {
+export default function UpdateVis({ visit, disId }) {
   // all states
-  const [title, setTitle] = useState("");
-  const [pay, setPay] = useState(0);
+  const [title, setTitle] = useState(visit.prescription);
+  const [pay, setPay] = useState(visit.pay);
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -50,18 +50,15 @@ export default function AddVisite({ due, disId }) {
         "Content-Type": "application/json",
       },
     };
-    const datas =
-      due >= pay
-        ? await axios.post(
-            `https://dental-finalbackend.herokuapp.com/api/v1/days/add/${disId}`,
-            {
-              prescription: title,
-              pay: pay,
-              diseaseid: disId,
-            },
-            config
-          )
-        : alert("you pay more then due!");
+    const datas = await axios.put(
+      `https://dental-finalbackend.herokuapp.com/api/v1/days/${disId}`,
+      {
+        prescription: title,
+        pay: pay,
+      },
+      config
+    );
+
     // : (alert("You pay more then due"), setOpen(false));
     // setPayment(payment + pay);
     // const { data } = datas;
@@ -78,11 +75,11 @@ export default function AddVisite({ due, disId }) {
       {/* </div> */}
       <Button
         onClick={handleClickOpen}
-        className="mt-3"
+        className="mt-3 "
         variant="outlined"
         color="primary"
       >
-        Add Visit
+        Edit
       </Button>
       <Dialog
         fullScreen
@@ -112,6 +109,7 @@ export default function AddVisite({ due, disId }) {
           <List>
             <form action="">
               <textarea
+                value={title}
                 style={{ width: "100%" }}
                 onChange={(e) => {
                   setTitle(e.target.value);
@@ -120,6 +118,7 @@ export default function AddVisite({ due, disId }) {
                 type="text"
               />
               <input
+                value={pay}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}

@@ -86,3 +86,11 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* moneyRecipt */
+.moneyRecipt {
+  /* background-image: url("../src/image/203078355_104379078568237_8354960180840931656_n.png"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

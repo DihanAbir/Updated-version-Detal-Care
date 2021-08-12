@@ -18,7 +18,9 @@ import {
 export const UserList = () => async (dispatch) => {
   try {
     dispatch({ type: USER_LIST_REQUEST });
-    const { data } = await axios.get("api/v1/user/");
+    const { data } = await axios.get(
+      "https://dental-finalbackend.herokuapp.com/api/v1/user/"
+    );
     // console.log(`data from user list `, data.data);
 
     dispatch({ type: USER_LIST_SUCCESS, payload: data.data });
@@ -37,7 +39,9 @@ export const UserDetails = (userId) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
 
-    const { data } = await axios.get(`/api/v1/user/profile/${userId}`);
+    const { data } = await axios.get(
+      `https://dental-finalbackend.herokuapp.com/api/v1/user/profile/${userId}`
+    );
     // console.log(`data from user DETAILS `, data.data);
 
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data.data });
@@ -64,7 +68,11 @@ export const createUser = (user) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(`/api/v1/user/addPatient`, user, config);
+    const { data } = await axios.post(
+      `https://dental-finalbackend.herokuapp.com/api/v1/user/addPatient`,
+      user,
+      config
+    );
     console.log(`data`, data);
     dispatch({ type: USER_ADD_SUCCESS, payload: data });
   } catch (error) {
@@ -84,7 +92,9 @@ export const alluserInfo = (disID) => async (dispatch) => {
       type: USER_INFO_REQUEST,
     });
 
-    const { data } = await axios.get(`/api/v1/disease/${disID}`);
+    const { data } = await axios.get(
+      `https://dental-finalbackend.herokuapp.com/api/v1/disease/${disID}`
+    );
 
     // const { data2 } = await axios.get(`/api/v1/user/${data1.data.userid}`);
     // const { data3 } = await axios.get(`/api/v1/days/${disID}`);
