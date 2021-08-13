@@ -194,7 +194,7 @@ function Profile({ userId }) {
       ) : (
         <div>
           <p>profile</p>
-          <p>{userId}</p>
+
           <div className="img">
             <img
               style={{ width: "70%" }}
@@ -209,7 +209,7 @@ function Profile({ userId }) {
             <div className="proDetails">
               <h5>Name:{user?.name}</h5>
               <small>
-                <b>Patient ID:</b> 06
+                <b>Patient ID:</b> <p>{userId}</p>
               </small>
               <br />
               <small>
