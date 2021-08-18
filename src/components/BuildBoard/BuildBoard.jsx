@@ -10,7 +10,7 @@ function BuildBoard() {
         <Link className="Link" to="/UserProfile">
           <AcUnitOutlined />
         </Link>
-        <h4 className="pl-3">Dashboard</h4>
+        {/* <h4 className="pl-3">Dashboard</h4> */}
       </div>
       <hr />
       <div className="row">
