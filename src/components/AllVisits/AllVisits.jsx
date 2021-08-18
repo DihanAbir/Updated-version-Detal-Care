@@ -57,14 +57,14 @@ function AllVisits() {
               Money Receipt
             </Button>
           </Link>
-          <Button
+          {/* <Button
             onClick={goToPreviousPath}
             className="mr-4 mt-3"
             variant="outlined"
             color="primary"
           >
             Prescription
-          </Button>
+          </Button> */}
         </div>
       </div>
       {/* </Link> */}

@@ -19,7 +19,9 @@ function Money() {
   }, []);
   //   user
   useEffect(() => {
-    fetch(`/api/v1/user/${disease.userid}`)
+    fetch(
+      `https://dental-finalbackend.herokuapp.com/api/v1/user/${disease.userid}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setUser(data.data);
@@ -36,7 +38,7 @@ function Money() {
   const myfunc = () => {
     window.print();
   };
-
+  console.log(`user`, user);
   return (
     <div className="moneyRecipt ">
       <div className="container">
@@ -54,19 +56,19 @@ function Money() {
               <p>Name: {user?.name}</p>
             </div>
             <div className="col-4">
-              <p>Name: {user?.address}</p>
+              <p>Address: {user?.address}</p>
             </div>
             <div className="col-4">
-              <p>Name: {user?.age}</p>
+              <p>Age: {user?.age}</p>
             </div>
             <div className="col-4">
-              <p>Name: {user?.bloodGroup}</p>
+              <p>BloodGroup: {user?.bloodGroup}</p>
             </div>
             <div className="col-4">
-              <p>Name: {user?.gender}</p>
+              <p>Gender: {user?.gender}</p>
             </div>
             <div className="col-4">
-              <p>Name: {user?.phone}</p>
+              <p>Phone: {user?.phone}</p>
             </div>
           </div>
         </div>

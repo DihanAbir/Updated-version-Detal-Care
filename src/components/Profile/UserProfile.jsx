@@ -181,7 +181,9 @@ function Profile({ userId }) {
     fetch(`https://dental-finalbackend.herokuapp.com/api/v1/user/${userId}`, {
       method: "DELETE",
     }).then(() => alert("Delete successful"));
+
     history.push("/");
+    // window.location.reload();
   };
 
   return (
