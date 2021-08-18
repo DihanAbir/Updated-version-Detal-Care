@@ -18,15 +18,7 @@ function User({ data }) {
         <div className="col-2">
           <div className="row">
             <div className="col-6">
-              <img
-                style={{
-                  borderRadius: "10px",
-                  minHeight: "40px",
-                  width: "40px",
-                }}
-                src={image}
-                alt=""
-              />
+              <p>{_id}</p>
             </div>
           </div>
         </div>

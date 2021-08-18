@@ -179,11 +179,11 @@ export default function MiniDrawer() {
         <div className="">
           <div className=" UserHeader row">
             <div className="col-4">Name</div>
-            <div className="col-2">Address</div>
+            <div className="col-3">Address</div>
             <div className="col-3">Phone</div>
             <div className="col-2">
               <div className="row">
-                <div className="col-12">Profile</div>
+                <div className="col-12">ID</div>
               </div>
             </div>
           </div>

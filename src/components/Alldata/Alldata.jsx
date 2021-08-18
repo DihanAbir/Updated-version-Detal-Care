@@ -17,6 +17,9 @@ function Alldata({ searchvalue }) {
   }, [dispatch, rerender]);
 
   const searchedValue = user.filter((val) => {
+    let foo = val.phone;
+    let bar = "" + foo;
+    // alert(typeof val.phone);
     if (searchvalue === "") {
       return val;
     } else if (val.address.toLowerCase().includes(searchvalue.toLowerCase())) {
@@ -25,10 +28,13 @@ function Alldata({ searchvalue }) {
       return val;
     } else if (val.name.toLowerCase().includes(searchvalue.toLowerCase())) {
       return val;
+    } else if (bar.includes(searchvalue.toLowerCase())) {
+      return val;
     }
   });
 
-  console.log(`searchvalue`, searchvalue);
+  console.log(`searchvalue`, typeof searchvalue);
+
   return (
     <div>
       <div className="addDiv">
