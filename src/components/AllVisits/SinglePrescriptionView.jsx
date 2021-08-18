@@ -23,7 +23,9 @@ function SinglePrescriptionView() {
             </div>
           </div>
           <div className="col-9">
-            <h1 style={{ color: "green" }}>Pain Cure Dental Care</h1>
+            <h1 style={{ fontSize: "38px", color: "green" }}>
+              পেইন কিউর ডেন্টাল কেয়ার
+            </h1>
             <h1 style={{ color: "#141454" }}>Pain Cure Dental Care</h1>
           </div>
           <div style={{ fontWeight: "600", margin: "0 auto" }}>
