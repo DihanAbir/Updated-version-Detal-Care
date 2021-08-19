@@ -97,7 +97,7 @@ function SinglePrescriptionView() {
               <p>Age:{userFinal[0]?.age} Years</p>
             </div>
             <div className="col-2">
-              <p>Date: {userFinal[0]?.date}</p>
+              <small>Date: {userFinal[0]?.date}</small>
             </div>
           </div>
         </div>

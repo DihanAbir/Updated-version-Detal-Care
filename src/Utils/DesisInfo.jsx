@@ -10,12 +10,12 @@ function DesisInfo({ disis }) {
         </p>
         <p>
           {" "}
-          <b>TreatmentPlan:</b> {disis.treatmentPlan}
+          <b>Treatment Plan:</b> {disis.treatmentPlan}
         </p>
-        <p>
+        {/* <p>
           {" "}
-          <b>Treatment:</b> {disis.treatment}
-        </p>
+          <b>Prescription:</b> {disis.treatment}
+        </p> */}
         <p>
           <b>Date:</b> {disis.date}
         </p>

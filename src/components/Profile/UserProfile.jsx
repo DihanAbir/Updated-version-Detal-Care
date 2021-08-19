@@ -93,14 +93,14 @@ function UserProfile() {
         </div>
         <div className="col-9">
           <div className="prescrition border p-3">
-            <p>all Prescrition's </p>
-            <div className="filterHerf border text-center">
+            <p>All Disease's </p>
+            {/* <div className="filterHerf border text-center">
               <button className="btn btn-light mr-5">Prescrition</button>
               <button className="btn btn-light mr-5">Disease</button>
               <button className="btn btn-light mr-5">Treatment Plan</button>
-            </div>
+            </div> */}
             <hr />
-            <p className="text-center">All Disease's </p>
+            {/* <p className="text-center">All Disease's </p> */}
 
             <div className="row">
               {disease.length === 0 ? <h2> No Disease 🤗</h2> : null}
