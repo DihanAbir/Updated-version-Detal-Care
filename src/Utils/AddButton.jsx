@@ -163,7 +163,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add Total Bill"
                 type="number"
               />
-              <input
+              {/* <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -172,7 +172,7 @@ export default function FullScreenDialog({ userId }) {
                 }}
                 placeholder="Add Payment"
                 type="number"
-              />
+              /> */}
               {/* additional */}
               <input
                 onWheel={(event) => {

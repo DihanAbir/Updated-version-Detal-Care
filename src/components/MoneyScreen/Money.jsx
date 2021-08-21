@@ -70,13 +70,16 @@ function Money() {
             <div className="col-4">
               <p>Phone: {user?.phone}</p>
             </div>
+            <div className="col-4">
+              <p>ID: {user?._id}</p>
+            </div>
           </div>
         </div>
         <div className="py-3 text-center">
-          <small>Disease</small>
+          <p>Disease</p>
         </div>
         <hr />
-        <h4 className="py-5 text-center">Title: {disease?.title}</h4>
+        {/* <h4 className="py-5 text-center">Title: {disease?.title}</h4> */}
         <div className="disease d-flex justify-content-between">
           <p>Bill: {disease?.bill}</p>
           <p>Payment: {disease?.pay}</p>

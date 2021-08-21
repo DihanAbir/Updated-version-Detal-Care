@@ -115,14 +115,14 @@ function SinglePrescriptionView() {
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
             </div>
             <div>
-              <div className="row  border">
+              <div className="d-flex justify-content-around row  border">
                 <div className="col-3 green">X-ray</div>
-                <div
+                {/* <div
                   style={{ fontSize: "25px", padding: "0px" }}
                   className="text-center col-3"
                 >
                   <BiPlus />
-                </div>
+                </div> */}
                 <div className="col-3 green">, OPG: </div>
               </div>
             </div>
