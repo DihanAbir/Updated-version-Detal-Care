@@ -108,22 +108,22 @@ function UserProfile() {
                 ? disease.map((dis, index) => (
                     <div key={index} className="border col-md-4">
                       <div className="row">
-                        <div className="col-md-8">
-                          <Link className="Link" to={`/allVisits/${dis._id}`}>
+                        <Link className="Link" to={`/allVisits/${dis._id}`}>
+                          <div className="col-md-10">
                             <small>{dis._id}</small>
                             <p>
                               Name: "{" "}
                               <span className="text-danger">{dis.title}</span> "
                             </p>
-                            <b>TreatMent Plan: </b>
+                            <b>Treatment Plan: </b>
                             <small>{dis.treatmentPlan}</small>
                             <p>
                               Bill: "{" "}
                               <span className="text-success">{dis.bill}</span> "
                             </p>
-                          </Link>
-                        </div>
-                        <div className="updateDelete col-md-4">
+                          </div>
+                        </Link>
+                        <div className="updateDelete col-md-2">
                           <button onClick={() => deleteDiseaseHandler(dis._id)}>
                             <AiOutlineDelete />
                           </button>

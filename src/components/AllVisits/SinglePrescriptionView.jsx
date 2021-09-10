@@ -11,6 +11,7 @@ function SinglePrescriptionView() {
   const myfunc = () => {
     window.print();
   };
+  console.log(`prescriptionFinal[1]`, prescriptionFinal[1]);
   return (
     <div className="container-fluid prescription">
       <div div className="p-1">
@@ -108,22 +109,18 @@ function SinglePrescriptionView() {
           >
             <div>
               <h6>C/C</h6>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <p> {prescriptionFinal[1]?.title}</p>
             </div>
             <div>
               <h6>O/E</h6>
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <p></p>
+              <br />
             </div>
             <div>
               <div className="d-flex justify-content-around row  border">
-                <div className="col-3 green">X-ray</div>
-                {/* <div
-                  style={{ fontSize: "25px", padding: "0px" }}
-                  className="text-center col-3"
-                >
-                  <BiPlus />
-                </div> */}
-                <div className="col-3 green">, OPG: </div>
+                <p className="green">X-ray</p>
+
+                <p className="green">, OPG: </p>
               </div>
             </div>
 

@@ -149,17 +149,7 @@ export default function UpdateDis({ infor, disId }) {
                 placeholder="Add Disease Title"
                 type="text"
               />
-              <textarea
-                onWheel={(event) => {
-                  event.preventDefault();
-                }}
-                value={treatment}
-                onChange={(e) => {
-                  setTreatment(e.target.value);
-                }}
-                placeholder="Update Disease Prescription"
-                type="text"
-              />
+
               <textarea
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
@@ -256,6 +246,17 @@ export default function UpdateDis({ infor, disId }) {
                   setMedicineHistory(e.target.value);
                 }}
                 placeholder="Add MedicineHistory"
+                type="text"
+              />
+              <textarea
+                onWheel={(event) => {
+                  event.preventDefault();
+                }}
+                value={treatment}
+                onChange={(e) => {
+                  setTreatment(e.target.value);
+                }}
+                placeholder="Update Disease Prescription"
                 type="text"
               />
             </form>

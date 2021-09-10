@@ -136,16 +136,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add Disease Title"
                 type="text"
               />
-              <textarea
-                onWheel={(event) => {
-                  event.preventDefault();
-                }}
-                onChange={(e) => {
-                  setTreatment(e.target.value);
-                }}
-                placeholder="Add Disease Prescription"
-                type="text"
-              />
+
               <textarea
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
@@ -232,6 +223,16 @@ export default function FullScreenDialog({ userId }) {
                   setMedicineHistory(e.target.value);
                 }}
                 placeholder="Add Medicine History"
+                type="text"
+              />
+              <textarea
+                onWheel={(event) => {
+                  event.preventDefault();
+                }}
+                onChange={(e) => {
+                  setTreatment(e.target.value);
+                }}
+                placeholder="Add Disease Prescription"
                 type="text"
               />
             </form>
