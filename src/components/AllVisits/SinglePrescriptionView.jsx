@@ -15,7 +15,14 @@ function SinglePrescriptionView() {
   const myfunc = () => {
     window.print();
   };
-  console.log(`prescriptionFinal[1]`, prescriptionFinal);
+  var usertoday = storedColors[0]?.date;
+  var today2 = new Date();
+
+  const today = new Date(usertoday);
+  const daycus =
+    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
+  // console.log(`(storedColors[0]?.date)[1]`, today);
+  // console.log(`(storedColors[0]?.date)[1]`, daycus);
 
   return (
     <div className="container-fluid prescription">
@@ -109,11 +116,11 @@ function SinglePrescriptionView() {
               </p>
             </div>
             <div className="col-2">
-              <small>Date: {storedColors[0]?.date}</small>
+              <small>Date: {daycus}</small>
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row" style={{ padding: "0px 16px" }}>
           <div
             style={{ borderRight: "1px solid green", padding: "0px!important" }}
             className="presBodyside col-4"
@@ -190,11 +197,29 @@ function SinglePrescriptionView() {
               </p>
             </div>
           </div>
-          <div className="col-8" style={{ padding: "0px!important" }}>
-            <br />
-            <h6 className="rx">RX:</h6>
+          <div
+            className="col-8"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              padding: "0px!important",
+            }}
+          >
+            <div>
+              <h6 className="rx">RX:</h6>
 
-            <p id="p_wrap">{prescriptionFinal[1]?.treatment}</p>
+              <p id="p_wrap">{prescriptionFinal[1]?.treatment}</p>
+            </div>
+            <div>
+              <p className="koronio">দাঁত তোলার পর করনিও</p>
+              <p>
+                *তুলা ৩০ মিনিট পর ফেলতে হবে। * তুলা ফেলানুর পর পর ক্ষত স্থানে
+                ঠান্ডা কিছু লাগাতে হবে। * ২৪ ঘন্টা নরম, মিষ্টি জাতিও কিছু খেয়ে
+                হবে। *২৪ ঘন্টা পর থেকে কুসুম গরম পানিতে লবন মিশিয়ে দিনে ৫-১০ বার
+                কুল্কুচি করতে হবে। * ঔষধ নিয়মিত খাবে।
+              </p>
+            </div>
           </div>
         </div>
         {/* <hr />
@@ -218,6 +243,30 @@ function SinglePrescriptionView() {
           Print
         </Button> */}
       </div>
+      <footer
+        style={{ bottom: "0px", position: "relative" }}
+        className="container-fluid"
+      >
+        <div className="row ">
+          <div style={{ border: "1px solid green" }} className="col-4 pt-3">
+            <p>প্রতি ৬ মাস অন্তর অন্তর আপনার মুখ ও</p>
+            <p>দাঁত দন্তরোগ বিশেষজ্ঞ দ্বারা পরীক্ষা করুন</p>
+          </div>
+          <div
+            style={{ backgroundColor: "#1d981d", color: "white" }}
+            className="col-8 pt-3"
+          >
+            <p>
+              পরবতী সাক্ষাতঃ ............. দিন পর। সাক্ষাতের সময় ব্যবস্থাপত্র
+              সজ্ঞে আনবেন।
+            </p>
+            <p>
+              হটলাইনঃ ০১৭২০৪২৫৪৮৫, ০১৭৭২১০২২৩৩(সিরিয়ালের জন্য),
+              ০১৭০৯২২২২৯৮(হোয়াইসআপ)
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

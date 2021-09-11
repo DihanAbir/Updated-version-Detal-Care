@@ -38,3 +38,11 @@ h4 {
 #p_wrap {
   white-space: pre-line;
 }
+.koronio {
+  color: white;
+  background: #333390;
+  padding: 5px 25px 4px 0px;
+  display: inline;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+}
