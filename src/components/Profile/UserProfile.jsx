@@ -112,13 +112,13 @@ function UserProfile() {
                           <div className="col-md-10">
                             <small>{dis._id}</small>
                             <p>
-                              Name: "{" "}
+                              Name: "
                               <span className="text-danger">{dis.title}</span> "
                             </p>
                             <b>Treatment Plan: </b>
                             <small>{dis.treatmentPlan}</small>
                             <p>
-                              Bill: "{" "}
+                              Bill: "
                               <span className="text-success">{dis.bill}</span> "
                             </p>
                           </div>
@@ -172,6 +172,8 @@ function Profile({ userId }) {
         // console.log(data.data);
         setProfile(data.data);
         setUser([data.data]);
+        let userInf = [data.data];
+        localStorage.setItem("my_Info", JSON.stringify(userInf));
       });
 
     dispatch(UserDetails(userId));

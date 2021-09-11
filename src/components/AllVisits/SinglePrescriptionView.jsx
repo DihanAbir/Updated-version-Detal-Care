@@ -1,17 +1,22 @@
 import { Button } from "@material-ui/core";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { prescriptionContext } from "../../App";
 import { BiPlus } from "react-icons/bi";
 import logo from "../../image/logo.jpeg";
 import "./style.css";
+import { useParams } from "react-router";
 
 function SinglePrescriptionView() {
   const [prescriptionFinal, setPrescription, userFinal, setUser] =
     useContext(prescriptionContext);
+
+  var storedColors = JSON.parse(localStorage.getItem("my_Info"));
+
   const myfunc = () => {
     window.print();
   };
-  console.log(`prescriptionFinal[1]`, prescriptionFinal[1]);
+  console.log(`prescriptionFinal[1]`, prescriptionFinal);
+
   return (
     <div className="container-fluid prescription">
       <div div className="p-1">
@@ -89,16 +94,22 @@ function SinglePrescriptionView() {
         <div className="personalInfo">
           <div className="row">
             <div className="col-5">
-              <p>Name: {userFinal[0]?.name}</p>
+              <p style={{ textTransform: "capitalize" }}>
+                Name: {storedColors[0]?.name}
+              </p>
             </div>
             <div className="col-3">
-              <p>Sex: {userFinal[0]?.gender}</p>
+              <p style={{ textTransform: "capitalize" }}>
+                Sex: {storedColors[0]?.gender}
+              </p>
             </div>
             <div className="col-2">
-              <p>Age:{userFinal[0]?.age} Years</p>
+              <p style={{ textTransform: "capitalize" }}>
+                Age:{storedColors[0]?.age} Years
+              </p>
             </div>
             <div className="col-2">
-              <small>Date: {userFinal[0]?.date}</small>
+              <small>Date: {storedColors[0]?.date}</small>
             </div>
           </div>
         </div>
@@ -113,7 +124,7 @@ function SinglePrescriptionView() {
             </div>
             <div>
               <h6>O/E</h6>
-              <p></p>
+              <p>{prescriptionFinal[0]?.prescription}</p>
               <br />
             </div>
             <div>

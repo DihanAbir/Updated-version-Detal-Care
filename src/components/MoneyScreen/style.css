@@ -1,0 +1,40 @@
+.headerPres {
+  margin: 0px 13%;
+}
+.prescription {
+  position: relative;
+}
+.headerPres h1 {
+  font-weight: bolder;
+  font-size: 50px;
+  font-family: none;
+  text-align: end;
+}
+.printbtn {
+  position: absolute;
+  bottom: 0;
+  left: 95%;
+  color: white !important;
+}
+.presBodyside {
+  background-color: rgb(234, 234, 255);
+}
+.presBodyside h6,
+.green,
+.prescription .span,
+.prescription .detailsDoc p {
+  color: green;
+  /* font-weight: 400; */
+}
+h4 {
+  color: #141454;
+  font-weight: 600;
+}
+.rx {
+  font-family: cursive;
+  color: green;
+}
+
+#p_wrap {
+  white-space: pre-line;
+}

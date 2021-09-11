@@ -33,7 +33,7 @@ function Alldata({ searchvalue }) {
     }
   });
 
-  console.log(`searchvalue`, typeof searchvalue);
+  // console.log(`searchvalue`, typeof searchvalue);
 
   return (
     <div>
