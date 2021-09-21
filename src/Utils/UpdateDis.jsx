@@ -148,6 +148,7 @@ export default function UpdateDis({ infor, disId }) {
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
+                Value={title}
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -168,6 +169,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Treatment Plan</label>
               <textarea
+                defaultValue={treatmentPlan}
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
                 }}
@@ -175,7 +177,7 @@ export default function UpdateDis({ infor, disId }) {
                 type="textarea"
               />
               <label for="first_name">Adv</label>
-              <textarea
+              <input
                 Value={adv}
                 onChange={(e) => {
                   setAdv(e.target.value);
@@ -185,6 +187,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Total Bil</label>
               <input
+                Value={bill}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -207,6 +210,7 @@ export default function UpdateDis({ infor, disId }) {
               {/* additional */}
               <label for="first_name">InV</label>
               <input
+                Value={InV}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -218,6 +222,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">BP</label>
               <input
+                Value={BP}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -229,6 +234,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Diabetes</label>
               <input
+                Value={Diabetes}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -240,6 +246,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Temp</label>
               <input
+                Value={Temp}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -251,6 +258,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Desease History</label>
               <input
+                Value={DeseaseHistory}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -262,6 +270,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Medicine Historyl</label>
               <input
+                Value={MedicineHistory}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
@@ -273,6 +282,7 @@ export default function UpdateDis({ infor, disId }) {
               />
               <label for="first_name">Disease Prescription</label>
               <textarea
+                defaultValue={treatment}
                 onWheel={(event) => {
                   event.preventDefault();
                 }}

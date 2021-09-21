@@ -16,6 +16,12 @@ function Money() {
   const { Userres } = useParams();
   var storedUser = JSON.parse(localStorage.getItem("my_Info"));
 
+  var usertoday = storedUser[0]?.date;
+  var today2 = new Date();
+
+  const today = new Date(usertoday);
+  const daycus =
+    today.getDate() + "-" + (today.getMonth() + 1) + "-" + today.getFullYear();
   useEffect(() => {
     fetch(`https://dental-finalbackend.herokuapp.com/api/v1/disease/${Userres}`)
       .then((res) => res.json())
@@ -108,11 +114,11 @@ function Money() {
               <div style={{ border: "1px solid green" }} className="col-6">
                 <div className="px-4 disease d-flex justify-content-between">
                   <div>
-                    <p>Bill: {disease?.bill}</p>
-                    <p>Payment: {disease?.pay}</p>
+                    <p>Bill: {disease?.bill} Taka</p>
+                    <p>Payment: {disease?.pay} Taka</p>
                   </div>
                   <div>
-                    <p>Due: {disease?.due}</p>
+                    <p>Due: {disease?.due} Taka</p>
                   </div>
                 </div>
               </div>
@@ -137,7 +143,7 @@ function Money() {
                 </p>
               </div>
               <div className="col-2">
-                <small>Date: {storedUser[0]?.date}</small>
+                <small>Date: {daycus}</small>
               </div>
             </div>
           </div>
@@ -156,7 +162,11 @@ function Money() {
             days.map((day, index) => (
               <div style={{ borderRadius: "4px" }} className="mt-5 p-2 border">
                 <div key={index} className="d-flex justify-content-between">
-                  <p>{day.date}</p>
+                  <p>
+                    Date: {new Date(day.date).getDate()}-
+                    {new Date(day.date).getMonth() + 1}-
+                    {new Date(day.date).getFullYear()}
+                  </p>
                   <b>Payment: {day.pay} Taka</b>
                 </div>
                 <p>

@@ -162,9 +162,11 @@ function SinglePrescriptionView() {
             <div className="adv">
               <p>
                 {" "}
-                <span className="span">
-                  Adv: <p> {prescriptionFinal[1]?.adv}</p>
-                </span>{" "}
+                <span className="span">Adv:</span>{" "}
+                <p style={{ color: "black!important" }}>
+                  {" "}
+                  {prescriptionFinal[1]?.adv}
+                </p>
               </p>
               <br />
             </div>
