@@ -47,6 +47,8 @@ export default function UpdateDis({ infor, disId }) {
   const [Temp, setTemp] = useState(infor.Temp);
   const [DeseaseHistory, setDeseaseHistory] = useState(infor.DeseaseHistory);
   const [MedicineHistory, setMedicineHistory] = useState(infor.MedicineHistory);
+  const [OnExam, setOnExam] = useState(infor.oe);
+  const [adv, setAdv] = useState(infor.adv);
 
   const [payment, setPayment] = useState(infor.pay);
 
@@ -79,6 +81,7 @@ export default function UpdateDis({ infor, disId }) {
 
     const { data } = await axios.put(
       `https://dental-finalbackend.herokuapp.com/api/v1/disease/update/${disId}`,
+      // `http://localhost:5000/api/v1/disease/update/${disId}`,
       {
         titleupdated: title,
         bilupdated: bill,
@@ -87,6 +90,8 @@ export default function UpdateDis({ infor, disId }) {
         treatmentPlanupdated: treatmentPlan,
 
         UpdatedInV: InV,
+        Updatedadv: adv,
+        Updatedoe: OnExam,
         UpdatedBP: BP,
         UpdatedDiabetes: Diabetes,
         UpdatedTemp: Temp,
@@ -138,125 +143,143 @@ export default function UpdateDis({ infor, disId }) {
         <div className="container">
           <List>
             <form action="">
+              <label for="first_name">C/C</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.title}
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
-                placeholder="Add Disease Title"
+                placeholder="C/C"
                 type="text"
               />
-
+              <label for="first_name">O/E</label>
+              <input
+                onWheel={(event) => {
+                  event.preventDefault();
+                }}
+                Value={OnExam}
+                onChange={(e) => {
+                  setOnExam(e.target.value);
+                }}
+                placeholder="O/E"
+                type="text"
+              />
+              <label for="first_name">Treatment Plan</label>
               <textarea
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
                 }}
-                value={treatmentPlan}
                 placeholder="Add  Treatment Plan"
                 type="textarea"
               />
+              <label for="first_name">Adv</label>
+              <textarea
+                Value={adv}
+                onChange={(e) => {
+                  setAdv(e.target.value);
+                }}
+                placeholder="Add  Adv"
+                type="textarea"
+              />
+              <label for="first_name">Total Bil</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.bill}
                 onChange={(e) => {
                   setBill(e.target.value);
                 }}
                 placeholder="Add Total Bill"
                 type="number"
               />
-              <input
+              {/* <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.pay}
                 onChange={(e) => {
                   setPayment(e.target.value);
                 }}
                 placeholder="Add Payment"
                 type="number"
-              />
-
-              {/* others */}
+              /> */}
+              {/* additional */}
+              <label for="first_name">InV</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.InV}
                 onChange={(e) => {
                   setInV(e.target.value);
                 }}
                 placeholder="Add InV"
                 type="text"
               />
+              <label for="first_name">BP</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.BP}
                 onChange={(e) => {
                   setBP(e.target.value);
                 }}
                 placeholder="Add BP"
                 type="text"
               />
+              <label for="first_name">Diabetes</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.Diabetes}
                 onChange={(e) => {
                   setDiabetes(e.target.value);
                 }}
                 placeholder="Add Diabetes"
                 type="text"
               />
+              <label for="first_name">Temp</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.Temp}
                 onChange={(e) => {
                   setTemp(e.target.value);
                 }}
                 placeholder="Add Temp"
                 type="text"
               />
+              <label for="first_name">Desease History</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.DeseaseHistory}
                 onChange={(e) => {
                   setDeseaseHistory(e.target.value);
                 }}
-                placeholder="Add DeseaseHistory"
+                placeholder="Add Desease History"
                 type="text"
               />
+              <label for="first_name">Medicine Historyl</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                Value={infor.MedicineHistory}
                 onChange={(e) => {
                   setMedicineHistory(e.target.value);
                 }}
-                placeholder="Add MedicineHistory"
+                placeholder="Add Medicine History"
                 type="text"
               />
+              <label for="first_name">Disease Prescription</label>
               <textarea
                 onWheel={(event) => {
                   event.preventDefault();
                 }}
-                value={treatment}
                 onChange={(e) => {
                   setTreatment(e.target.value);
                 }}
-                placeholder="Update Disease Prescription"
+                placeholder="Add Disease Prescription"
                 type="text"
               />
             </form>

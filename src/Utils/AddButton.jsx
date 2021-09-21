@@ -43,6 +43,8 @@ export default function FullScreenDialog({ userId }) {
   const [Temp, setTemp] = useState("");
   const [DeseaseHistory, setDeseaseHistory] = useState("");
   const [MedicineHistory, setMedicineHistory] = useState("");
+  const [OnExam, setOnExam] = useState("");
+  const [adv, setAdv] = useState("");
 
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -73,12 +75,15 @@ export default function FullScreenDialog({ userId }) {
 
     const { data } = await axios.post(
       `https://dental-finalbackend.herokuapp.com/api/v1/disease/add/${userId}`,
+      // `http://localhost:5000/api/v1/disease/add/${userId}`,
       {
         title: title,
         bill: bill,
         due: due,
         pay: payment,
         treatment: treatment,
+        OE: setOnExam,
+        adv: adv,
         treatmentPlan: treatmentPlan,
         userid: userId,
         InV: InV,
@@ -126,6 +131,7 @@ export default function FullScreenDialog({ userId }) {
         <div className="container">
           <List>
             <form action="">
+              <label for="first_name">C/C</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -133,10 +139,21 @@ export default function FullScreenDialog({ userId }) {
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
-                placeholder="Add Disease Title"
+                placeholder="C/C"
                 type="text"
               />
-
+              <label for="first_name">O/E</label>
+              <input
+                onWheel={(event) => {
+                  event.preventDefault();
+                }}
+                onChange={(e) => {
+                  setOnExam(e.target.value);
+                }}
+                placeholder="O/E"
+                type="text"
+              />
+              <label for="first_name">Treatment Plan</label>
               <textarea
                 onChange={(e) => {
                   setTreatmentPlan(e.target.value);
@@ -144,6 +161,15 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add  Treatment Plan"
                 type="textarea"
               />
+              <label for="first_name">Adv</label>
+              <textarea
+                onChange={(e) => {
+                  setAdv(e.target.value);
+                }}
+                placeholder="Add  Adv"
+                type="textarea"
+              />
+              <label for="first_name">Total Bil</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -165,6 +191,7 @@ export default function FullScreenDialog({ userId }) {
                 type="number"
               /> */}
               {/* additional */}
+              <label for="first_name">InV</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -175,6 +202,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add InV"
                 type="text"
               />
+              <label for="first_name">BP</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -185,6 +213,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add BP"
                 type="text"
               />
+              <label for="first_name">Diabetes</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -195,6 +224,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add Diabetes"
                 type="text"
               />
+              <label for="first_name">Temp</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -205,6 +235,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add Temp"
                 type="text"
               />
+              <label for="first_name">Desease History</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -212,9 +243,10 @@ export default function FullScreenDialog({ userId }) {
                 onChange={(e) => {
                   setDeseaseHistory(e.target.value);
                 }}
-                placeholder="Add DeseaseHistory"
+                placeholder="Add Desease History"
                 type="text"
               />
+              <label for="first_name">Medicine Historyl</label>
               <input
                 onWheel={(event) => {
                   event.preventDefault();
@@ -225,6 +257,7 @@ export default function FullScreenDialog({ userId }) {
                 placeholder="Add Medicine History"
                 type="text"
               />
+              <label for="first_name">Disease Prescription</label>
               <textarea
                 onWheel={(event) => {
                   event.preventDefault();

@@ -32,14 +32,31 @@ function SinglePrescriptionView() {
         <div className="headerPres row ">
           <div className="col-3">
             <div className="logo">
-              <img className="p-2 img-fluid" src={logo} alt="" />
+              <img
+                style={{ padding: "34px!important" }}
+                className="p-2 img-fluid"
+                src={logo}
+                alt=""
+              />
             </div>
           </div>
           <div className="col-9">
-            <h1 style={{ fontSize: "38px", color: "green" }}>
-              পেইন কিউর ডেন্টাল কেয়ার
-            </h1>
-            <h1 style={{ color: "#141454" }}>Pain Cure Dental Care</h1>
+            <div style={{ alignSelf: "center" }}>
+              <h1 style={{ fontSize: " 65px", color: "green" }}>
+                পেইন কিউর ডেন্টাল কেয়ার
+              </h1>
+              <h1
+                style={{
+                  fontSize: "68px",
+                  fontFamily: "serif",
+                  fontWeight: "600",
+                  letterSpacing: "4px",
+                  color: "#141454",
+                }}
+              >
+                Pain Cure Dental Care
+              </h1>
+            </div>
           </div>
           <div style={{ fontWeight: "600", margin: "0 auto" }}>
             <p style={{ color: "green" }}>
@@ -131,7 +148,7 @@ function SinglePrescriptionView() {
             </div>
             <div>
               <h6>O/E</h6>
-              <p>{prescriptionFinal[0]?.prescription}</p>
+              <p>{prescriptionFinal[1]?.oe}</p>
               <br />
             </div>
             <div>
@@ -145,7 +162,9 @@ function SinglePrescriptionView() {
             <div className="adv">
               <p>
                 {" "}
-                <span className="span">Adv:</span>{" "}
+                <span className="span">
+                  Adv: <p> {prescriptionFinal[1]?.adv}</p>
+                </span>{" "}
               </p>
               <br />
             </div>
